@@ -1,4 +1,4 @@
-package com.serendevity.accessingdatarest;
+package com.serendevity;
 
 import org.springframework.data.repository.CrudRepository;
 

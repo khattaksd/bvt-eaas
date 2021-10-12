@@ -1,4 +1,4 @@
-package com.serendevity.accessingdatarest;
+package com.serendevity;
 
 import java.util.List;
 

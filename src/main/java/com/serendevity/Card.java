@@ -1,4 +1,4 @@
-package com.serendevity.accessingdatarest;
+package com.serendevity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

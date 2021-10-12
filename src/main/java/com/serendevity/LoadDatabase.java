@@ -1,4 +1,4 @@
-package com.serendevity.accessingdatarest;
+package com.serendevity;
 
 import com.github.javafaker.Business;
 import com.github.javafaker.Faker;
