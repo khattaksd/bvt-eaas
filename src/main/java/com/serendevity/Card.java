@@ -1,5 +1,6 @@
 package com.serendevity;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Card {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Person person;
 
+    @Convert(converter = CardNumberEncryptConverter.class)
     private String cardNumber;
     private String cardExpiry; // mmdd
     private String cardCvv; // nnn
