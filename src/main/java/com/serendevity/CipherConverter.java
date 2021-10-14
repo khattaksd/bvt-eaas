@@ -9,7 +9,7 @@ import org.springframework.vault.core.VaultTemplate;
 import org.springframework.vault.core.VaultTransitOperations;
 
 @Converter
-public class VaultTransitCipherConverter implements AttributeConverter<String, String> {
+public class CipherConverter implements AttributeConverter<String, String> {
 
     private static final String TRANSIT = "transit";
 
@@ -20,16 +20,16 @@ public class VaultTransitCipherConverter implements AttributeConverter<String, S
     private VaultTemplate vaultTemplate;
 
     @Override
-    public String convertToDatabaseColumn(String plaintext) {
-        return this.getTransitOps().encrypt(this.keyName, plaintext);
+    public String convertToDatabaseColumn(final String plaintext) {
+        return this.getOps().encrypt(this.keyName, plaintext);
     }
 
     @Override
-    public String convertToEntityAttribute(String ciphertext) {
-        return this.getTransitOps().decrypt(this.keyName, ciphertext);
+    public String convertToEntityAttribute(final String ciphertext) {
+        return this.getOps().decrypt(this.keyName, ciphertext);
     }
 
-    private VaultTransitOperations getTransitOps() {
+    private VaultTransitOperations getOps() {
         return this.vaultTemplate.opsForTransit(TRANSIT);
     }
 }

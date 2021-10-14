@@ -2,6 +2,7 @@ package com.serendevity;
 
 import com.github.javafaker.Business;
 import com.github.javafaker.Faker;
+import com.github.javafaker.Name;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +25,10 @@ class LoadDatabase implements CommandLineRunner {
         Faker faker = new Faker();
 
         for (int i = 0; i < 10; i++) {
-            final Person p = new Person(faker.name().firstName(), faker.name().lastName());
+            final Name n = faker.name();
+            final Person p = new Person(n.firstName(), faker.name().lastName());
             log.info("Preloading " + personRepo.save(p));
-            Business b = faker.business();
+            final Business b = faker.business();
             final Card c = new Card(p, b.creditCardNumber(), b.creditCardExpiry(), faker.number().digits(3));
             log.info("Preloading " + cardRepo.save(c));
         }
