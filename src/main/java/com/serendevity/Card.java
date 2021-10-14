@@ -22,7 +22,7 @@ public class Card {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Person person;
 
-    @Convert(converter = CardNumberEncryptConverter.class)
+    @Convert(converter = VaultTransitCipherConverter.class)
     private String cardNumber;
     private String cardExpiry; // mmdd
     private String cardCvv; // nnn
