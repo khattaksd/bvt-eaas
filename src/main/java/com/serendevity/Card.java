@@ -1,5 +1,7 @@
 package com.serendevity;
 
+import static javax.persistence.FetchType.LAZY;
+
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = LAZY,  optional = false)
     @JoinColumn(name = "person_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Person person;

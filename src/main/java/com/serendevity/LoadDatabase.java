@@ -24,7 +24,7 @@ class LoadDatabase implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Faker faker = new Faker();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             final Name n = faker.name();
             final Person p = new Person(n.firstName(), faker.name().lastName());
             log.info("Preloading " + personRepo.save(p));
